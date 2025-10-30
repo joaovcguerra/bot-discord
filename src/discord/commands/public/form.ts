@@ -9,7 +9,7 @@ createCommand({
 
     // 3. Crie o Modal principal
     const modal = new ModalBuilder()
-      .setCustomId("/staff/form")
+      .setCustomId("/buttons/form")
       .setTitle("Formulário da Equipe");
 
     // 4. Crie CADA campo de input
