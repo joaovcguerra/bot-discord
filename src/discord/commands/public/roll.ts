@@ -1,5 +1,6 @@
 import { createCommand } from "#base";
-import { ApplicationCommandOptionType, ApplicationCommandType } from "discord.js";
+// 1. Importe "MessageFlags"
+import { ApplicationCommandOptionType, ApplicationCommandType, MessageFlags } from "discord.js";
 import { rollDice } from "#functions";
 
 createCommand({
@@ -21,7 +22,11 @@ createCommand({
         if (result.success) {
             await interaction.reply(`🎲 **${interaction.user.username} rolou:**\n\`\`\`\n${result.output}\n\`\`\``);
         } else {
-            await interaction.reply({ content: result.output, ephemeral: true });
+            await interaction.reply({
+                content: result.output,
+                // 2. CORREÇÃO DO AVISO:
+                flags: [MessageFlags.Ephemeral]
+            });
         }
     },
 });
